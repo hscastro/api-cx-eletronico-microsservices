@@ -32,5 +32,11 @@ public class BeneficiarioServiceImpl implements BeneficiarioService {
 		return repository.findAll();
 	}
 
+	@Override
+	public Optional<Beneficiario> update(Beneficiario beneficiario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
