@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_beneficiario")
+@Table(name = "tb_beneficiarios")
 public class Beneficiario implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -19,30 +19,34 @@ public class Beneficiario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "nome", nullable = false, length = 255)
 	private String nome;
 	
+	@Column(name = "cpf", nullable = false, unique = true, length = 11)
 	private String cpf;
 	
+	@Column(name = "email", nullable = false, length = 255)
 	private String email;
 	
 	@Column(name = "vlr_total")
 	private Double vlrTotal; 	
 
-	private Integer quantidadeAnosAposentadoria;
+	@Column(name = "qtd_anos")
+	private Integer qtdAnos;
 	
 	public Beneficiario() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Beneficiario(Long id, String nome, String cpf, String email, Double vlrTotal,
-			Integer quantidadeAnosAposentadoria) {
+	  
+
+	public Beneficiario(Long id, String nome, String cpf, String email, Double vlrTotal, Integer qtdAnos) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.email = email;
 		this.vlrTotal = vlrTotal;
-		this.quantidadeAnosAposentadoria = quantidadeAnosAposentadoria;
+		this.qtdAnos = qtdAnos;
 	}
 
 
@@ -86,13 +90,16 @@ public class Beneficiario implements Serializable {
 		this.vlrTotal = vlrTotal;
 	}
 
-	public Integer getQuantidadeAnosAposentadoria() {
-		return quantidadeAnosAposentadoria;
+    
+	public Integer getQtdAnos() {
+		return qtdAnos;
 	}
 
-	public void setQuantidadeAnosAposentadoria(Integer quantidadeAnosAposentadoria) {
-		this.quantidadeAnosAposentadoria = quantidadeAnosAposentadoria;
+
+	public void setQtdAnos(Integer qtdAnos) {
+		this.qtdAnos = qtdAnos;
 	}
+
 
 	@Override
 	public int hashCode() {
