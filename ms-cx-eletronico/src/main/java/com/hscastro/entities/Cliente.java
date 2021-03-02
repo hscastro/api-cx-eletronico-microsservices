@@ -2,24 +2,23 @@ package com.hscastro.entities;
 
 import java.io.Serializable;
 
-public class Worker implements Serializable {
+public class Cliente implements Serializable {
 	
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
 
 	private Long id;
 	private String name;	
-	private Double dailyIncome; 	
+	private Double amount; 	
 
-	public Worker() {
+	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public Worker(Long id, String name, Double dailyIncome) {
+    
+	public Cliente(Long id, String name, Double vlrTotal) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.dailyIncome = dailyIncome;
+		this.amount = vlrTotal;
 	}
 
 	public Long getId() {
@@ -37,13 +36,13 @@ public class Worker implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public Double getDailyIncome() {
-		return dailyIncome;
+    
+	public Double getVlrTotal() {
+		return amount;
 	}
 
-	public void setDailyIncome(Double dailyIncome) {
-		this.dailyIncome = dailyIncome;
+	public void setVlrTotal(Double amount) {
+		this.amount = amount;
 	}
 
 	@Override
@@ -62,7 +61,7 @@ public class Worker implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Worker other = (Worker) obj;
+		Cliente other = (Cliente) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

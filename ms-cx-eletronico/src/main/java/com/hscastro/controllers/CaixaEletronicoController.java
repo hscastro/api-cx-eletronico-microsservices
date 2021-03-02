@@ -7,28 +7,28 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hscastro.entities.Payment;
-import com.hscastro.services.PaymentService;
+import com.hscastro.entities.Caixa;
+import com.hscastro.services.CaixaEletronicotService;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
-@RequestMapping(value = "/payments")
-public class PaymentController {
+@RequestMapping(value = "/eletronicos")
+public class CaixaEletronicoController {
 	
 	@Autowired
-	private PaymentService paymentService;	
+	private CaixaEletronicotService paymentService;	
 
 	@HystrixCommand(fallbackMethod = "getPaymentAlternative")
 	@GetMapping(value = "/{workerId}/days/{days}")
-	public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, 
+	public ResponseEntity<Caixa> getPayment(@PathVariable Long workerId, 
 			@PathVariable Integer days){
-		Payment payment = paymentService.getPayment(workerId, days);
+		Caixa payment = paymentService.getPayment(workerId, days);
 		return ResponseEntity.ok(payment);		
 	}
 	
 	
-	public ResponseEntity<Payment> getPaymentAlternative(Long workerId, Integer days){
-		Payment payment = new Payment("Brann", 400.0, days);
+	public ResponseEntity<Caixa> getPaymentAlternative(Long workerId, Integer days){
+		Caixa payment = new Caixa("Brann", 400.0, days);
 		return ResponseEntity.ok(payment);		
 	}	
 }

@@ -40,7 +40,6 @@ public class Cliente implements Serializable {
 	  
 
 	public Cliente(Long id, String nome, String cpf, String email, Double vlrTotal, Integer qtdAnos) {
-		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -124,7 +123,6 @@ public class Cliente implements Serializable {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
-	}
-	
+	}	
 	
 }
