@@ -18,11 +18,6 @@ public class CaixaEletronicoController {
 	@Autowired
 	private CaixaEletronicotService service;	
 	
-	@GetMapping("/")
-	public String home() {
-		System.out.println("ok, teste");
-		return "home";
-	}
 
 	@HystrixCommand(fallbackMethod = "getPayAposentadoriaAlternative")
 	@GetMapping(value = "/{clienteId}/months/{months}")
