@@ -17,6 +17,12 @@ public class CaixaEletronicoController {
 	
 	@Autowired
 	private CaixaEletronicotService service;	
+	
+	@GetMapping("/")
+	public String home() {
+		System.out.println("ok, teste");
+		return "home";
+	}
 
 	@HystrixCommand(fallbackMethod = "getPayAposentadoriaAlternative")
 	@GetMapping(value = "/{clienteId}/months/{months}")
@@ -24,9 +30,9 @@ public class CaixaEletronicoController {
 			@PathVariable Integer months){
 		Caixa pay = service.getPayAposentadoria(clienteId, months);
 		return ResponseEntity.ok(pay);		
-	}
-	
-	
+	}	
+	//9 97475367,,
+	//método responde em caso de atrasos na requisição ou se não encontrar a rota definida
 	public ResponseEntity<Caixa> getPayAposentadoriaAlternative(Long clienteId, Integer months){
 		Caixa pay = new Caixa("Fulano de Castro", 1100.00, months);
 		return ResponseEntity.ok(pay);		
