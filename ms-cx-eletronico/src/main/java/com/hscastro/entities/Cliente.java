@@ -14,11 +14,11 @@ public class Cliente implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
     
-	public Cliente(Long id, String name, Double vlrTotal) {
+	public Cliente(Long id, String name, Double amount) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.amount = vlrTotal;
+		this.amount = amount;
 	}
 
 	public Long getId() {

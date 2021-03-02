@@ -19,8 +19,8 @@ public class Cliente implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "nome", nullable = false, length = 255)
-	private String nome;
+	@Column(name = "name", nullable = false, length = 255)
+	private String name;
 	
 	@Column(name = "cpf", nullable = false, unique = true, length = 11)
 	private String cpf;
@@ -39,9 +39,9 @@ public class Cliente implements Serializable {
 	}
 	  
 
-	public Cliente(Long id, String nome, String cpf, String email, Double vlrTotal, Integer qtdAnos) {
+	public Cliente(Long id, String name, String cpf, String email, Double vlrTotal, Integer qtdAnos) {
 		this.id = id;
-		this.nome = nome;
+		this.name = name;
 		this.cpf = cpf;
 		this.email = email;
 		this.vlrTotal = vlrTotal;
@@ -57,12 +57,12 @@ public class Cliente implements Serializable {
 		this.id = id;
 	}
 		
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getCpf() {

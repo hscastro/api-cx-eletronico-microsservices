@@ -16,19 +16,19 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 public class CaixaEletronicoController {
 	
 	@Autowired
-	private CaixaEletronicotService paymentService;	
+	private CaixaEletronicotService service;	
 
-	@HystrixCommand(fallbackMethod = "getPaymentAlternative")
-	@GetMapping(value = "/{workerId}/days/{days}")
-	public ResponseEntity<Caixa> getPayment(@PathVariable Long workerId, 
-			@PathVariable Integer days){
-		Caixa payment = paymentService.getPayment(workerId, days);
-		return ResponseEntity.ok(payment);		
+	@HystrixCommand(fallbackMethod = "getPayAposentadoriaAlternative")
+	@GetMapping(value = "/{clienteId}/months/{months}")
+	public ResponseEntity<Caixa> getPayAposentadoria(@PathVariable Long clienteId, 
+			@PathVariable Integer months){
+		Caixa pay = service.getPayAposentadoria(clienteId, months);
+		return ResponseEntity.ok(pay);		
 	}
 	
 	
-	public ResponseEntity<Caixa> getPaymentAlternative(Long workerId, Integer days){
-		Caixa payment = new Caixa("Brann", 400.0, days);
-		return ResponseEntity.ok(payment);		
+	public ResponseEntity<Caixa> getPayAposentadoriaAlternative(Long clienteId, Integer months){
+		Caixa pay = new Caixa("Fulano de Castro", 1100.00, months);
+		return ResponseEntity.ok(pay);		
 	}	
 }

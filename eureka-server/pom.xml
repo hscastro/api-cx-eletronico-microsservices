@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.hscastro</groupId>
-	<artifactId>eureka-server-cx-eletronico</artifactId>
+	<artifactId>eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>eureka-server-cx-eletronico</name>
-	<description> project eureka-server-cx-eletronico for Spring Boot</description>
+	<name>eureka-server</name>
+	<description> project eureka-server for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR10</spring-cloud.version>

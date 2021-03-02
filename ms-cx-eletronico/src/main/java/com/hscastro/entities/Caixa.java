@@ -41,7 +41,7 @@ public class Caixa {
 	}
 	
 	public double getTotal() {
-		return months * amount; 
+		return amount / months; 
 	}
 
 }
