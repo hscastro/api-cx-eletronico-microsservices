@@ -19,4 +19,6 @@ public class CaixaEletronicotService {
 		Cliente cliente = service.findById(clienteId).getBody();		
 		return new Caixa(cliente.getName(), cliente.getVlrTotal(), months);
 	}
+		
+	
 }

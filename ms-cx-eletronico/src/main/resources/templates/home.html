@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+	<head> <meta charset="UTF-8" /> </head>
+<body>
+	<section class="layout-content" layout:fragment="corpo">
+		<nav class="navbar navbar-expand-md bg-light">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<i class="oi oi-caret-right"></i>
+						<span>Home</span>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		
+		<div class="container">
+			<div id="list-home" class="row">
+				<div class="col-4">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a class="list-group-item list-group-item-action active"
+							id="list-spring-boot-list" data-toggle="list" href="#spring-boot"
+							role="tab" aria-controls="spring-boot">BRASILPREV</a> <a
+							class="list-group-item list-group-item-action" id="list-sts-list"
+							data-toggle="list" href="#sts" role="tab" aria-controls="sts">Aposentadoria
+							</a> <a class="list-group-item list-group-item-action"
+							id="list-thymeleaf-list" data-toggle="list" href="#thymeleaf"
+							role="tab" aria-controls="thymeleaf">Tempo de Contribuição</a> 
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="spring-boot"
+							role="tabpanel" aria-labelledby="list-spring-boot-list">
+							<a href="https://www1.brasilprev.com.br/">BrasilPrev</a>
+							Nossa história começa 27 anos atrás, quando investir no longo prazo ainda 
+							era raro no país. Desde sempre atuamos exclusivamente com previdência privada,
+							 o que nos fez especialistas nesse mercado, e temos orgulho das marcas que deixamos 
+							 nessa trajetória, como o entendimento da previdência além da aposentadoria, o 
+							 lançamento do segmento voltado a crianças e jovens (Brasilprev Júnior) e dos 
+							 inovadores fundos Ciclo de Vida.
+						</div>
+						<div class="tab-pane fade" id="sts" role="tabpanel"
+							aria-labelledby="list-sts-list">
+							The <a href="https://spring.io/tools">Spring Tool Suite</a> is an
+							Eclipse-based development environment that is customized for
+							developing Spring applications. It provides a ready-to-use
+							environment to implement, debug, run, and deploy your Spring
+							applications, including integrations for Pivotal tc Server,
+							Pivotal Cloud Foundry, Git, Maven, AspectJ, and more.
+						</div>
+						<div class="tab-pane fade" id="thymeleaf" role="tabpanel"
+							aria-labelledby="list-thymeleaf-list">
+							<a href="http://www.thymeleaf.org/">Thymeleaf</a> is a modern
+							server-side Java template engine for both web and standalone
+							environments. With modules for Spring Framework, a host of
+							integrations with your favourite tools, and the ability to plug
+							in your own functionality, Thymeleaf is ideal for modern-day
+							HTML5 JVM web development — although there is much more it can
+							do.
+						</div>
+												
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</section>		
+	
+</body>
+</html>

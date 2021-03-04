@@ -1,4 +1,5 @@
-package com.hscastro.resources;
+package com.hscastro.controllers;
+
 
 import java.util.List;
 
@@ -12,34 +13,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hscastro.entities.Cliente;
-import com.hscastro.services.ClienteService;
+import com.hscastro.feignClients.ClienteFeignClient;
 
 
 @RestController
-@RequestMapping(value = "/clientes")
-public class ClienteResource {
-	
-		
-	@Autowired
-	private ClienteService service;
+@RequestMapping
+public class ClienteController {
 
+	@Autowired
+	private ClienteFeignClient feignClienteRepository;
+	
 	@PostMapping
 	public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
-		Cliente objCliente = service.save(cliente);
-		return ResponseEntity.ok(objCliente);
+		 return feignClienteRepository.save(cliente);
 	}
 	
 	@GetMapping(value = "/{id}")	
 	public ResponseEntity<Cliente> findById(@PathVariable Long id){	
 		
-		Cliente objCliente = service.findById(id).get();
+		Cliente objCliente = feignClienteRepository.findById(id).getBody();
 		return ResponseEntity.ok(objCliente);		
-	}
+	}	
 	
 	@GetMapping	
 	public ResponseEntity<List<Cliente>> findAll(){
-		List<Cliente> lista = service.findAll();
+		List<Cliente> lista = feignClienteRepository.findAll();
 		return ResponseEntity.ok(lista);		
-	}
-	
+	}	
 }

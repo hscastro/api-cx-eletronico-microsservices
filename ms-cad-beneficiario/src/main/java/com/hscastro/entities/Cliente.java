@@ -1,6 +1,7 @@
 package com.hscastro.entities;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name = "tb_clientes")
@@ -22,11 +26,21 @@ public class Cliente implements Serializable {
 	@Column(name = "name", nullable = false, length = 255)
 	private String name;
 	
-	@Column(name = "cpf", nullable = false, unique = true, length = 11)
+	@Column(name = "cpf", nullable = false, length = 11)
 	private String cpf;
 	
 	@Column(name = "email", nullable = false, length = 255)
 	private String email;
+	
+	@DateTimeFormat(iso = ISO.DATE)
+	@Column(name = "data_nascimento", columnDefinition = "DATE")
+	private LocalDate dataNascimento;
+	
+	@Column(name = "login", nullable = false, unique = true,  length = 50)
+	private String login;
+	
+	@Column(name = "senha", nullable = false, length = 33)
+	private String senha;
 	
 	@Column(name = "vlr_total")
 	private Double vlrTotal; 	
@@ -38,16 +52,46 @@ public class Cliente implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 	  
-
-	public Cliente(Long id, String name, String cpf, String email, Double vlrTotal, Integer qtdAnos) {
+	
+	public Cliente(Long id, String name, String cpf, String email, LocalDate dataNascimento, String login, String senha,
+			Double vlrTotal, Integer qtdAnos) {		
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.email = email;
+		this.dataNascimento = dataNascimento;
+		this.login = login;
+		this.senha = senha;
 		this.vlrTotal = vlrTotal;
 		this.qtdAnos = qtdAnos;
 	}
 
+
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+	
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public Long getId() {
 		return id;

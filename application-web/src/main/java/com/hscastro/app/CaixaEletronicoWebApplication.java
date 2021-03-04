@@ -1,8 +1,10 @@
-package com.hscastro.cxeletronico;
+package com.hscastro.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
+@EnableFeignClients
 @SpringBootApplication
 public class CaixaEletronicoWebApplication {
 

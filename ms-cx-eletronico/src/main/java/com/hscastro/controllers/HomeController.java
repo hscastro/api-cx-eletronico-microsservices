@@ -1,4 +1,4 @@
-package com.hscastro.cxeletronico.controllers;
+package com.hscastro.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
