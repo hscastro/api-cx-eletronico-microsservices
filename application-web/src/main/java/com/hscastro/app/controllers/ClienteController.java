@@ -26,11 +26,11 @@ public class ClienteController {
 	//@PostMapping(value = "/salvar", produces = {"application/json"}, consumes = {"application/x-www-form-urlencoded"})
 	
 	@PostMapping(value = "/salvar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, 
-	        produces = {MediaType.APPLICATION_ATOM_XML_VALUE, MediaType.APPLICATION_JSON_VALUE})
+	        produces = { MediaType.APPLICATION_JSON_VALUE})
 	public String cadastrar(Cliente cliente, RedirectAttributes attr) {
 		 serviceFeignClient.save(cliente);
 		 attr.addFlashAttribute("success", "Cliente inserido com sucesso.");
-		 return "redirect:/home";
+			return "redirect:/clientes/cadastro";
 	}
 	
 	@GetMapping(value = "/{id}")	
