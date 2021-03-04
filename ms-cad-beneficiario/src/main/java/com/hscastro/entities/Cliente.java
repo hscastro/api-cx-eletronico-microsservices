@@ -36,10 +36,10 @@ public class Cliente implements Serializable {
 	@Column(name = "data_nascimento", columnDefinition = "DATE")
 	private LocalDate dataNascimento;
 	
-	@Column(name = "login", nullable = false, unique = true,  length = 50)
+	@Column(name = "login", nullable = true, unique = true,  length = 50)
 	private String login;
 	
-	@Column(name = "senha", nullable = false, length = 33)
+	@Column(name = "senha", nullable = true, length = 33)
 	private String senha;
 	
 	@Column(name = "vlr_total")

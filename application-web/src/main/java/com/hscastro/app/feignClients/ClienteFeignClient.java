@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import com.hscastro.app.entities.Cliente;
 
 @Component
-@FeignClient(name = "ms-cad-beneficiario", url = "localhost:33093", path = "/clientes")
+@FeignClient(name = "ms-cad-beneficiario", path = "/clientes")
 public interface ClienteFeignClient {
 			
 	@GetMapping(value = "/{id}")	
 	ResponseEntity<Cliente> findById(@PathVariable Long id);
 	
 	@PostMapping
-	ResponseEntity<Cliente> save(@RequestBody Cliente cliente);
+	ResponseEntity<Cliente> save(Cliente cliente);
 	
 	@GetMapping
 	List<Cliente> findAll();

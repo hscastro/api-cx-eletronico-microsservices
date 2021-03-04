@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layout}">
-<head><meta charset="UTF-8"/></head>
+
 <body>
     <section class="layout-content" layout:fragment="corpo">
     
@@ -26,8 +26,8 @@
            <form th:action="@{/clientes/salvar}" th:object="${cliente}" method="POST">
                <div class="form-row">
                    <div class="form-group col-md-6">
-                       <label for="nome">Nome do Cliente</label>
-                       <input type="text" class="form-control" id="nome" placeholder="Nome Completo"
+                       <label for="name">Nome do Cliente</label>
+                       <input type="text" class="form-control" id="name" placeholder="Nome Completo"
                               autofocus="autofocus" th:field="*{name}" />
                        <div class="invalid-feedback">
 
@@ -53,18 +53,8 @@
                        <div class="invalid-feedback">
 
                        </div>
-                    </div>    
+                    </div>   
                     
-                   <div class="form-group col-md-3">
-                       <label for="senha">Senha</label>
-                       <input type="password" class="form-control" id="senha" autofocus="autofocus"
-                       		th:field="*{senha}"/>                       
-                   </div>                              
-                                                          
-               </div>  
-
-               <div class="form-row">
-                   
                     <div class="form-group col-md-2">
                        <label for="dataNascimento">Data Nascimento</label>
                        <input type="date" class="form-control" id="dataNascimento" autofocus="autofocus"
@@ -72,8 +62,12 @@
                        <div class="invalid-feedback">
 
                        </div>
-                    </div>    
-                   <div class="form-group col-md-2"></div> 
+                    </div>                                                 
+                                                          
+               </div>  
+
+               <div class="form-row">  
+                    
                    <div class="form-group col-md-2">
                        <label for="vlrTotal">Valor Total</label>
                        <input type="text" class="form-control" id="vlrTotal" autofocus="autofocus"
@@ -88,8 +82,8 @@
                                                           
                </div>                 
                 
-                                                                          
-               <button type="submit" class="btn btn-primary btn-sm" onclick="alert('show!');">Salvar</button>
+               <input type="hidden" id="id" th:field="*{id}"/>                                                           
+               <button type="submit" class="btn btn-primary btn-sm">Salvar</button>
                <button type="button" class="btn btn-secondary btn-sm"
                onclick="return voltarLogin();">Cancelar</button>
            </form>
