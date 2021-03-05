@@ -1,3 +1,4 @@
+
 #server.port=8001
 #Configura dinamicamente a porta no eureka-server 
 server:
@@ -34,5 +35,3 @@ rabbitmq:
   port: 5672
   username: admin
   password: admin
-
-
