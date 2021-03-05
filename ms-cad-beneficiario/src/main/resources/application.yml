@@ -9,7 +9,7 @@ spring:
 
 #configura o profile a ser utilizado pelo o microsservi�o
   profiles:
-    active: test
+    active: dev
   jpa:
     open-in-view: false
 
@@ -27,5 +27,12 @@ beneficiario:
   rabbitmq:
     exchange: beneficiario.exchange
     routingKey: beneficiario.cliente.routingKey
+    
+#Configura o RabbitMQ
+rabbitmq:
+  host: localhost
+  port: 5672
+  username: admin
+  password: admin
 
 
