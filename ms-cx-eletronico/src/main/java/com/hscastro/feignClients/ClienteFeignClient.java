@@ -19,10 +19,6 @@ public interface ClienteFeignClient {
 	@GetMapping(value = "/{id}")	
 	ResponseEntity<Cliente> findById(@PathVariable Long id);
 	
-	@GetMapping(value = "/{cpf}")	
-	ResponseEntity<Cliente> findByCpf(@PathVariable String cpf);
-	
-	
 	@PostMapping
 	ResponseEntity<Cliente> save(@RequestBody Cliente cliente);
 	

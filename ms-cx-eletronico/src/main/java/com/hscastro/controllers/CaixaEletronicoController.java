@@ -39,13 +39,6 @@ public class CaixaEletronicoController {
 		Cliente objCliente = feignClienteRepository.findById(id).getBody();
 		return ResponseEntity.ok(objCliente);		
 	}	
-
-	@GetMapping(value = "/{cpf}")	
-	public ResponseEntity<Cliente> findByCpf(@PathVariable String cpf){	
-		
-		Cliente objCliente = feignClienteRepository.findByCpf(cpf).getBody();
-		return ResponseEntity.ok(objCliente);		
-	}
 	
 	@GetMapping	
 	public ResponseEntity<List<Cliente>> findAll(){
@@ -53,28 +46,19 @@ public class CaixaEletronicoController {
 		return ResponseEntity.ok(lista);		
 	}
 	
-	//método faz o cálculo, passando o [ID] do cliente	
-	@HystrixCommand(fallbackMethod = "getCalculoAposentadoriaAlternative")
+	
+
+	@HystrixCommand(fallbackMethod = "getPayAposentadoriaAlternative")
 	@GetMapping(value = "/{clienteId}/months/{months}")
-	public ResponseEntity<Caixa> getCalculoAposentadoria(@PathVariable Long clienteId, 
+	public ResponseEntity<Caixa> getPayAposentadoria(@PathVariable Long clienteId, 
 			@PathVariable Integer months){
-		Caixa calculo = service.getCalculoAposentadoria(clienteId, months);
-		return ResponseEntity.ok(calculo);		
-	}
-	
-	
-	//método faz o cálculo, passanado o [cpf] do cliente cadastrado	
-	@HystrixCommand(fallbackMethod = "getCalculoAposentadoriaAlternative")
-	@GetMapping(value = "/{cpf}/months/{months}")
-	public ResponseEntity<Caixa> getCalculoAposentadoria(@PathVariable String cpf, 
-			@PathVariable Integer months){
-		Caixa calculo = service.getCalculoAposentadoria(cpf, months);
-		return ResponseEntity.ok(calculo);		
-	}
+		Caixa pay = service.getPayAposentadoria(clienteId, months);
+		return ResponseEntity.ok(pay);		
+	}	
 	
 	//método responde em caso de atrasos na requisição ou se não encontrar a rota definida
-	public ResponseEntity<Caixa> getCalculoAposentadoriaAlternative(Long clienteId, Integer months){
-		Caixa calculo = new Caixa("Fulano de Castro", 1100.00, months);
-		return ResponseEntity.ok(calculo);		
+	public ResponseEntity<Caixa> getPayAposentadoriaAlternative(Long clienteId, Integer months){
+		Caixa pay = new Caixa("Fulano de Castro", 1100.00, months);
+		return ResponseEntity.ok(pay);		
 	}	
 }
