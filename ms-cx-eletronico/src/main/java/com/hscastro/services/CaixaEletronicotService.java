@@ -15,10 +15,14 @@ public class CaixaEletronicotService {
 	@Autowired
 	private ClienteFeignClient service;
 	
-	public Caixa getPayAposentadoria(long clienteId, int months) {			
+	public Caixa getCalculoAposentadoria(long clienteId, int months) {			
 		Cliente cliente = service.findById(clienteId).getBody();		
 		return new Caixa(cliente.getName(), cliente.getVlrTotal(), months);
-	}
-		
+	}	
+	
+	public Caixa getCalculoAposentadoria(String cpf, int months) {			
+		Cliente cliente = service.findByCpf(cpf).getBody();		
+		return new Caixa(cliente.getName(), cliente.getVlrTotal(), months);
+	}	
 	
 }
