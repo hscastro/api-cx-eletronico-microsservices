@@ -10,7 +10,7 @@ spring:
 
 #configura o profile a ser utilizado pelo o microsservi�o
   profiles:
-    active: dev
+    active: test
   jpa:
     open-in-view: false
 

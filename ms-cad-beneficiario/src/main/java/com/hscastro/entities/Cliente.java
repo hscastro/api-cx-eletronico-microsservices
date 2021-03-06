@@ -36,12 +36,7 @@ public class Cliente implements Serializable {
 	@Column(name = "data_nascimento", columnDefinition = "DATE")
 	private LocalDate dataNascimento;
 	
-	@Column(name = "login", nullable = true, unique = true,  length = 50)
-	private String login;
-	
-	@Column(name = "senha", nullable = true, length = 33)
-	private String senha;
-	
+		
 	@Column(name = "vlr_total")
 	private Double vlrTotal; 	
 
@@ -53,20 +48,16 @@ public class Cliente implements Serializable {
 	}
 	  
 	
-	public Cliente(Long id, String name, String cpf, String email, LocalDate dataNascimento, String login, String senha,
+	public Cliente(Long id, String name, String cpf, String email, LocalDate dataNascimento,
 			Double vlrTotal, Integer qtdAnos) {		
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
 		this.email = email;
-		this.dataNascimento = dataNascimento;
-		this.login = login;
-		this.senha = senha;
+		this.dataNascimento = dataNascimento;		
 		this.vlrTotal = vlrTotal;
 		this.qtdAnos = qtdAnos;
 	}
-
-
 
 	public LocalDate getDataNascimento() {
 		return dataNascimento;
@@ -76,23 +67,7 @@ public class Cliente implements Serializable {
 	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
+			
 	public Long getId() {
 		return id;
 	}
