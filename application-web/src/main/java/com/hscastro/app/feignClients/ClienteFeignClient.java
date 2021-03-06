@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.hscastro.app.entities.Cliente;
 
@@ -21,6 +21,9 @@ public interface ClienteFeignClient {
 	
 	@PostMapping
 	ResponseEntity<Cliente> save(Cliente cliente);
+	
+	@PutMapping
+	ResponseEntity<Cliente> update(Cliente cliente);
 	
 	@GetMapping
 	List<Cliente> findAll();

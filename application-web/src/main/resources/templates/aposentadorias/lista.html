@@ -35,20 +35,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="l : ${livros}">
-                        <td th:text="${l.id}">1</td>
-                        <td th:text="${l.isbn}"></td>
-                        <td th:text="${l.nome}">O quinze</td>
-                        <td th:text="${l.autor}">Raquel de Queiroz</td>
-                        <td th:text="${l.categoria.nome}">Literatura</td>
-                        <td th:text="${#temporals.format(l.dataEntrada, 'dd/MM/yyyyy')}"> </td>
+                    <tr th:each="a : ${aposentadorias}">
+                        <td th:text="${a.id}">1</td>
+                        <td th:text="${a.cliente.name}"></td>
+                        <td th:text="${a.cliente.vlrTotal}">0.00</td>
+                        <td th:text="${a.cliente.qtdAnos}">10</td>
+                        <td th:text="${#temporals.format(a.dataEntrada, 'dd/MM/yyyyy')}"> </td>
                         <td colspan="2">
-                            <a th:if="${ session.usuarioLogado.perfil == 1 }" class="btn btn-info btn-sm"                             	
-                             	th:href="@{/livros/editar/{id} (id=${l.id}) }" role="button">
+                            <a class="btn btn-info btn-sm"                             	
+                             	th:href="@{/aposentadorias/editar/{id} (id=${a.id}) }" role="button">
                                 <span class="oi oi-brush" title="Editar" aria-hidden="true"></span>
                             </a>
-                            <button th:if="${ session.usuarioLogado.perfil == 1 }" 
-                            		th:id="${#strings.concat('btn_livros/excluir/', l.id) }" type="button" 
+                            <button th:id="${#strings.concat('btn_aposentadorias/excluir/', a.id) }" type="button" 
                             		class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" >
                                 <span class="oi oi-circle-x" title="Exclusão desabilitada" aria-hidden="true"></span>
                             </button>

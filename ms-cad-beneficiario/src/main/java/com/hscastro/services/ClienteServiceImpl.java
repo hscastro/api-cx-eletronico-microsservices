@@ -30,8 +30,8 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
-	public Optional<Cliente> findById(Long id) {
-		Optional<Cliente> optionalBeneficiario = repository.findById(id);
+	public Cliente findById(Long id) {
+		Cliente optionalBeneficiario = repository.findById(id).get();
 		return optionalBeneficiario;
 	}
 
@@ -41,10 +41,9 @@ public class ClienteServiceImpl implements ClienteService {
 	}
 
 	@Override
-	public Optional<Cliente> update(Cliente cliente) {
-		// TODO Auto-generated method stub
-		return null;
+	public Cliente update(Cliente cliente) {
+		Cliente cli = repository.save(cliente);
+		return cli;
 	}
-
 
 }

@@ -25,9 +25,6 @@ public class HomeController {
 		return "login";
 	}	
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/clientes/cadastro")
-	public String cadastrar(Cliente cliente) {
-		return "clientes/cadastro";
-	}	
+	
 	
 }

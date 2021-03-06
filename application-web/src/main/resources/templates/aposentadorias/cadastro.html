@@ -23,31 +23,35 @@
             
             <div th:replace="fragments/alert"></div>
                         
-            <form action="" method="POST">
+            <form th:action="${aposentadoria.id == null } ? @{aposentadorias/salvar} : @{aposentadorias/editar}" 
+            		th:object="${aposentadoria}" method="POST">
                 
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <label for="cpf">CPF do Cliente</label>
-                        <input type="text" class="form-control" id="cpf" placeholder="CPF" autofocus="autofocus" />
+                        <input type="text" class="form-control" id="cpf" placeholder="CPF" autofocus="autofocus" 
+                        	th:field="*{aposentadoria.cliente.cpf}" />
                     </div>                
                     
                                         
                      <div class="form-group col-md-2">
                         <label for="qtdAnos">Quantidade de Anos</label>
                         <input type="text" class="form-control" id="qtdAnos" placeholder="Quant.de anos" 
-                         autofocus="autofocus" />
+                         autofocus="autofocus" 
+                         th:field="*{aposentadoria.cliente.qtdAnos}" />
                     </div>                     
                    
                     <!-- data de entrada -->
                     <div class="form-group col-md-2">
                        <label for="dataEntrada">Data de Entrada</label>
-                       <input type="date" class="form-control" id="dataEntrada" />
+                       <input type="date" class="form-control" id="dataEntrada" 
+                       	th:field="*{aposentadoria.cliente.dataEntrada}" />/>
                        <div class="invalid-feedback">
 
                        </div>
                    </div>
                 </div>
-                <input type="hidden" id="id" />
+                <input type="hidden" id="id" th:field="*{id}"/>
                 <button type="submit" class="btn btn-primary btn-sm">Calcular</button>
             </form>
         </div>
