@@ -48,7 +48,7 @@ public class ClienteController {
 		return "clientes/cadastro";
 	}	
 	
-	@PutMapping(value = "/editar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, 
+	@PostMapping(value = "/editar", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE, 
 	        produces = { MediaType.APPLICATION_JSON_VALUE})
 	public String editar(Cliente cliente, RedirectAttributes attr) {
 		 serviceFeignClient.update(cliente);
@@ -69,6 +69,12 @@ public class ClienteController {
 		model.addAttribute("clientes", clientes);
 		return "clientes/lista";		
 	}
-		
+
+	@GetMapping("/excluir/{id}")
+	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+		serviceFeignClient.delete(id);
+		attr.addFlashAttribute("success", "Cliente excluído com sucesso.");
+		return "clientes/lista";
+	}	
 		
 }

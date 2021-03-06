@@ -16,13 +16,6 @@ public class Cliente {
 	
 	private String email;
 	
-	@SuppressWarnings("unused")
-	private LocalDate dataNascimento;	
-	
-	private String login;
-	
-	
-	private String senha;	
 	
 	private Double vlrTotal; 	
 
@@ -64,30 +57,7 @@ public class Cliente {
 		this.email = email;
 	}
 		
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
+	
 	public Double getVlrTotal() {
 		return vlrTotal;
 	}

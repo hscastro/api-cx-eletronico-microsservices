@@ -32,11 +32,7 @@ public class Cliente implements Serializable {
 	@Column(name = "email", nullable = false, length = 255)
 	private String email;
 	
-	@DateTimeFormat(iso = ISO.DATE)
-	@Column(name = "data_nascimento", columnDefinition = "DATE")
-	private LocalDate dataNascimento;
-	
-		
+			
 	@Column(name = "vlr_total")
 	private Double vlrTotal; 	
 
@@ -48,26 +44,16 @@ public class Cliente implements Serializable {
 	}
 	  
 	
-	public Cliente(Long id, String name, String cpf, String email, LocalDate dataNascimento,
-			Double vlrTotal, Integer qtdAnos) {		
+	public Cliente(Long id, String name, String cpf, String email, Double vlrTotal, Integer qtdAnos) {		
 		this.id = id;
 		this.name = name;
 		this.cpf = cpf;
-		this.email = email;
-		this.dataNascimento = dataNascimento;		
+		this.email = email;			
 		this.vlrTotal = vlrTotal;
 		this.qtdAnos = qtdAnos;
 	}
 
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-
-
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
-	}
-			
+				
 	public Long getId() {
 		return id;
 	}

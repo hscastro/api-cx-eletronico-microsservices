@@ -52,8 +52,7 @@
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
-                        <th>Cpf</th>
-                        <th>Data de Nasc.</th>
+                        <th>Cpf</th>                        
                         <th>Email</th>  
                         <th>Ação</th>
                     </tr>
@@ -62,8 +61,7 @@
                     <tr th:each="c : ${clientes}">
                         <td th:text="${c.id}">1</td>
                         <td th:text="${c.name}">Jose da Silva</td>
-                        <td th:text="${c.cpf}"> 000.000.00-00</td>
-                        <td th:text="${#temporals.format(c.dataNascimento, 'dd/MM/yyyyy')}"> </td>
+                        <td th:text="${c.cpf}"> 000.000.00-00</td>                        
                         <td th:text="${c.email}"> fulano_ls@gmail.com</td>
                                             
                         

@@ -23,7 +23,7 @@
             
             <div th:replace="fragments/alert"></div>
             
-           <form th:action="${cliente.id == null } ? @{clientes/salvar} : @{clientes/editar}"              
+           <form th:action="${cliente.id == null } ? @{/clientes/salvar} : @{/clientes/editar}"              
             		th:object="${cliente}" method="POST">
             		
                <div class="form-row">
@@ -55,17 +55,8 @@
                        <div class="invalid-feedback">
 
                        </div>
-                    </div>   
-                    
-                    <div class="form-group col-md-2">
-                       <label for="dataNascimento">Data Nascimento</label>
-                       <input type="date" class="form-control" id="dataNascimento" autofocus="autofocus"
-                       		th:field="*{dataNascimento}" />                       
-                       <div class="invalid-feedback">
-
-                       </div>
-                    </div>                                                 
-                                                          
+                    </div>                       
+                                                 
                </div>  
 
                <div class="form-row">  

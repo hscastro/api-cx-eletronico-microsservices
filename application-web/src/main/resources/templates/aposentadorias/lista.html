@@ -29,8 +29,7 @@
                         <th>ID</th>
                         <th>Cliente</th>
                         <th>Valor Total</th>
-                        <th>Quantidade de Anos</th>
-                        <th>Data de Entrada</th>
+                        <th>Quantidade de Anos</th>                        
                         <th>Ação</th>
                     </tr>
                     </thead>
@@ -39,8 +38,7 @@
                         <td th:text="${a.id}">1</td>
                         <td th:text="${a.cliente.name}"></td>
                         <td th:text="${a.cliente.vlrTotal}">0.00</td>
-                        <td th:text="${a.cliente.qtdAnos}">10</td>
-                        <td th:text="${#temporals.format(a.dataEntrada, 'dd/MM/yyyyy')}"> </td>
+                        <td th:text="${a.cliente.qtdAnos}">10</td>                       
                         <td colspan="2">
                             <a class="btn btn-info btn-sm"                             	
                              	th:href="@{/aposentadorias/editar/{id} (id=${a.id}) }" role="button">

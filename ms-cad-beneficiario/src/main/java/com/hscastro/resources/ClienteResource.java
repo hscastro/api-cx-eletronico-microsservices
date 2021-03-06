@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -38,8 +39,7 @@ public class ClienteResource {
 	}
 	
 	@GetMapping(value = "/{id}")	
-	public ResponseEntity<Cliente> findById(@PathVariable Long id){	
-		
+	public ResponseEntity<Cliente> findById(@PathVariable Long id){			
 		Cliente objCliente = service.findById(id);
 		return ResponseEntity.ok(objCliente);		
 	}
@@ -49,5 +49,11 @@ public class ClienteResource {
 		List<Cliente> lista = service.findAll();
 		return ResponseEntity.ok(lista);		
 	}
+	
+	@GetMapping
+	public String delete(@PathVariable Long id) {
+		String delete = service.delete(id);
+		return delete;
+	}	
 	
 }

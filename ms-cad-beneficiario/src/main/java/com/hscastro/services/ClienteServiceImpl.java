@@ -46,4 +46,10 @@ public class ClienteServiceImpl implements ClienteService {
 		return cli;
 	}
 
+	@Override
+	public String delete(Long id) {
+		repository.deleteById(id);
+		return "Delete";
+	}
+
 }
