@@ -20,9 +20,6 @@ public class CaixaEletronicotService {
 		return new Caixa(cliente.getName(), cliente.getVlrTotal(), months);
 	}	
 	
-	public Caixa getCalculoAposentadoria(String cpf, int months) {			
-		Cliente cliente = service.findByCpf(cpf).getBody();		
-		return new Caixa(cliente.getName(), cliente.getVlrTotal(), months);
-	}	
+	
 	
 }

@@ -19,8 +19,8 @@ public interface CaixaEletronicoFeignClient {
 	@GetMapping(value = "/{id}")	
 	ResponseEntity<Cliente> findById(@PathVariable Long id);
 
-	@GetMapping(value = "/{cpf}")	
-	ResponseEntity<Cliente> findByCpf(@PathVariable String cpf);
+//	@GetMapping(value = "/{cpf}")	
+//	ResponseEntity<Cliente> findByCpf(@PathVariable String cpf);
 	
 	@PostMapping
 	ResponseEntity<Cliente> save(Cliente cliente);

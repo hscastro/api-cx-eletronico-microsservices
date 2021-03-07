@@ -7,26 +7,27 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hscastro.app.entities.Cliente;
 import com.hscastro.app.feignClients.CaixaEletronicoFeignClient;
 
 @Controller
-@RequestMapping("/aposentadorias")
-public class AposentadoriaController {
+@RequestMapping("/caixas")
+public class CaixaController {
 	
 	@Autowired
 	private CaixaEletronicoFeignClient serviceCaixaFeignClient;
 
 
-	@GetMapping("/cadastrar")
+	@RequestMapping(method = RequestMethod.GET, value = "/cadastro")
 	public String cadastrar() {
-		return "/aposentadorias/cadastro";
+		return "caixas/cadastro";
 	}
 	
-	@GetMapping("/lista")
-	public String listar() {
-		return "/aposentadorias/lista";
+	@RequestMapping(method = RequestMethod.GET, value = "/lista")
+	public String lista() {
+		return "caixas/lista";
 	}	
 	
 	@GetMapping	

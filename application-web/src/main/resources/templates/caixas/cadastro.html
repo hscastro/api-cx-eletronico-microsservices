@@ -13,7 +13,7 @@
                     </li>
                 </ul>
             </div>
-            <a class="btn btn-primary btn-md" th:href="@{/aposentadorias/lista}" role="button">
+            <a class="btn btn-primary btn-md" th:href="@{/caixas/lista}" role="button">
                 <span class="oi oi-spreadsheet" title="Cadastro" aria-hidden="true"></span>
                 <span>Listar Aposentadorias</span>
             </a>
@@ -23,14 +23,14 @@
             
             <div th:replace="fragments/alert"></div>
                         
-            <form th:action="${aposentadoria.id == null } ? @{aposentadorias/salvar} : @{aposentadorias/editar}" 
-            		th:object="${aposentadoria}" method="POST">
+            <form th:action="${aposentadoria.id == null } ? @{caixas/salvar} : @{caixas/editar}" 
+            		th:object="${caixa}" method="POST">
                 
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <label for="cpf">CPF do Cliente</label>
                         <input type="text" class="form-control" id="cpf" placeholder="CPF" autofocus="autofocus" 
-                        	th:field="*{aposentadoria.cliente.cpf}" />
+                        	th:field="*{caixa.cliente.cpf}" />
                     </div>                
                     
                                         
@@ -38,18 +38,10 @@
                         <label for="qtdAnos">Quantidade de Anos</label>
                         <input type="text" class="form-control" id="qtdAnos" placeholder="Quant.de anos" 
                          autofocus="autofocus" 
-                         th:field="*{aposentadoria.cliente.qtdAnos}" />
+                         th:field="*{caixa.cliente.qtdAnos}" />
                     </div>                     
                    
-                    <!-- data de entrada -->
-                    <div class="form-group col-md-2">
-                       <label for="dataEntrada">Data de Entrada</label>
-                       <input type="date" class="form-control" id="dataEntrada" 
-                       	th:field="*{aposentadoria.cliente.dataEntrada}" />/>
-                       <div class="invalid-feedback">
-
-                       </div>
-                   </div>
+                    
                 </div>
                 <input type="hidden" id="id" th:field="*{id}"/>
                 <button type="submit" class="btn btn-primary btn-sm">Calcular</button>

@@ -1,7 +1,6 @@
 package com.hscastro.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,12 +27,12 @@ public class ClienteServiceImpl implements ClienteService {
 		//clienteSendMessage.sendMessage(cliente);
 		return cli; 
 	}
-
+	
 	@Override
 	public Cliente findById(Long id) {
-		Cliente optionalBeneficiario = repository.findById(id).get();
-		return optionalBeneficiario;
-	}
+		Cliente cliente = repository.findById(id).get();
+		return cliente;
+	}	
 
 	@Override
 	public List<Cliente> findAll() {
@@ -46,10 +45,22 @@ public class ClienteServiceImpl implements ClienteService {
 		return cli;
 	}
 
-	@Override
-	public String delete(Long id) {
-		repository.deleteById(id);
-		return "Delete";
-	}
+//	@Override
+//	public String delete(Long id) {
+//		repository.deleteById(id);
+//		return "Delete";
+//	}
+//
+//	@Override
+//	public List<Cliente> findByName(String name) {
+//		List<Cliente> listClientes = repository.findByName(name);
+//		return listClientes;
+//	}
+//
+//	@Override
+//	public Cliente findByCpf(String cpf) {
+//		Cliente cliente = repository.findByCpf(cpf);
+//		return cliente;
+//	}
 
 }

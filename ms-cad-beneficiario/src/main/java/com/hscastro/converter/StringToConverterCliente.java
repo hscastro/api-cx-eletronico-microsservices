@@ -23,5 +23,6 @@ public class StringToConverterCliente implements Converter<String, Cliente> {
 		Long id = Long.valueOf(text);
 		return service.findById(id);
 	}
-
+	
 }
+	

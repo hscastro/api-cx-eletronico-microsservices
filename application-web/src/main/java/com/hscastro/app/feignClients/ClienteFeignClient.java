@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,7 +17,13 @@ import com.hscastro.app.entities.Cliente;
 public interface ClienteFeignClient {
 			
 	@GetMapping(value = "/{id}")	
-	ResponseEntity<Cliente> findById(@PathVariable Long id);
+	Cliente findById(@PathVariable Long id);
+		
+//	@GetMapping(value = "/{name}")	
+//	ResponseEntity<Cliente> findByName(@PathVariable("name") String name);
+//	
+//	@GetMapping(value = "/{cpf}")	
+//	ResponseEntity<Cliente> findByCpf(@PathVariable("cpf") String cpf);
 	
 	@PostMapping
 	ResponseEntity<Cliente> save(Cliente cliente);
@@ -26,9 +31,7 @@ public interface ClienteFeignClient {
 	@PutMapping
 	ResponseEntity<Cliente> update(Cliente cliente);
 
-	@DeleteMapping
-	String delete(Long id);
-	
+		
 	@GetMapping
 	List<Cliente> findAll();
 	

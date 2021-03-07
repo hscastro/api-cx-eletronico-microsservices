@@ -11,7 +11,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -43,7 +42,7 @@ public class ClienteController {
 
 	@GetMapping("/editar/{id}")
 	public String preEditar(@PathVariable("id") Long id, ModelMap model) {
-		Cliente cli = serviceFeignClient.findById(id).getBody();
+		Cliente cli = serviceFeignClient.findById(id);
 		model.addAttribute("cliente", cli);
 		return "clientes/cadastro";
 	}	
@@ -56,12 +55,13 @@ public class ClienteController {
 			return "redirect:/clientes/cadastro";
 	}
 	
+	
 	@GetMapping(value = "/{id}")	
 	public ResponseEntity<Cliente> findById(@PathVariable Long id){	
 		
-		Cliente objCliente = serviceFeignClient.findById(id).getBody();
+		Cliente objCliente = serviceFeignClient.findById(id);
 		return ResponseEntity.ok(objCliente);		
-	}	
+	}
 	
 	@GetMapping("/lista")
 	public String listar(ModelMap model) {
@@ -70,11 +70,22 @@ public class ClienteController {
 		return "clientes/lista";		
 	}
 
-	@GetMapping("/excluir/{id}")
-	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
-		serviceFeignClient.delete(id);
-		attr.addFlashAttribute("success", "Cliente excluído com sucesso.");
-		return "clientes/lista";
-	}	
-		
+//	@GetMapping("/excluir/{id}")
+//	public String excluir(@PathVariable("id") Long id, RedirectAttributes attr) {
+//		serviceFeignClient.delete(id);
+//		attr.addFlashAttribute("success", "Cliente excluído com sucesso.");
+//		return "clientes/lista";
+//	}	
+	
+//	@GetMapping("/buscar/name")
+//	public String getPorName(@PathVariable("name") String name, ModelMap model) {
+//		model.addAttribute("clientes", serviceFeignClient.findByName(name));
+//		return "/clientes/lista";		
+//	}		
+//
+//	@GetMapping("/buscar/cpf")
+//	public String getPorCpf(@PathVariable("cpf") String cpf, ModelMap model) {
+//		model.addAttribute("clientes", serviceFeignClient.findByCpf(cpf));
+//		return "/clientes/lista";		
+//	}
 }

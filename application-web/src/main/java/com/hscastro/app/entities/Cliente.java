@@ -1,24 +1,13 @@
 package com.hscastro.app.entities;
 
-import java.time.LocalDate;
-
 
 public class Cliente {
 	
-	private Long id;
-	
-	
-	private String name;
-	
-	
-	private String cpf;
-	
-	
-	private String email;
-	
-	
-	private Double vlrTotal; 	
-
+	private Long id;		
+	private String name;		
+	private String cpf;		
+	private String email;	
+	private Double vlrTotal; 
 	private Integer qtdAnos;
 	
 	public Cliente() {
@@ -65,12 +54,10 @@ public class Cliente {
 	public void setVlrTotal(Double vlrTotal) {
 		this.vlrTotal = vlrTotal;
 	}
-
     
 	public Integer getQtdAnos() {
 		return qtdAnos;
 	}
-
 
 	public void setQtdAnos(Integer qtdAnos) {
 		this.qtdAnos = qtdAnos;
